@@ -1,5 +1,5 @@
 const Jacob = require("./jacob.js");
 
-let p = new Jacob ("Jacob", ["FF28FD, #FFFFFF, #AABB1B"], ["#FF1234, #AA1100, #AABBFF"]);
+let p = new Jacob ("Jacob", ["24b554", "9546b8", "#b8ba25"]);
 
 p.speak();

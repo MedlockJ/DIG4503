@@ -1,8 +1,8 @@
 const Person = require("./person.js");
 
 class Jacob extends Person {
-    constructor(name, colors, bgColors){
-        super(name, colors, bgColors);
+    constructor(name, colors){
+        super(name, colors);
     }
 }
 
