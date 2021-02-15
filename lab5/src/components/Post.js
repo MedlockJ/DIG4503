@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react' ;
 import axios from 'axios';
 
-const Post  = ()=> {
+const Posts  = ()=> {
 
-    const [post, setPost] = useState();
-
+    const [post, setPosts] = useState();
+    
+    //componentDidMount
     useEffect( ()=> {
 
+        axios.get('https://jsonplaceholder.typicode.com/posts').then((res)=>{
+            const responsePosts = res.data;
+            setPosts(responsePosts);
+        });
 
     }, []);
 
@@ -18,7 +23,7 @@ const Post  = ()=> {
                     const{id, title} = post;
                     return(
                         <div key={id}>
-                            <h5>{title}</h5>
+                            <h5>Title: {title}</h5>
                             <h6>Assigned to user: {id}</h6>
                         </div>
                     )
@@ -29,3 +34,5 @@ const Post  = ()=> {
     )
 
 }
+
+export default Posts;
