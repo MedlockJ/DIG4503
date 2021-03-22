@@ -1,0 +1,89 @@
+<html>
+    <body>
+        <script>
+            function readScore(event){
+                event.preventDefault();
+
+                let element = document.querySelector("#score");
+
+                fetch("/api/movies/score" + element.value)
+                .then((res) => {
+                    return res.json();
+                })
+
+                .then((processed) =>{
+                    let reporting = document.querySelector("#reportingArea");
+
+                    if(processed.error){
+                        reporting.innerHTML = processed.error;
+                    } 
+                    else{
+                        reporting.innerHTML = processed.name;
+                    }
+                });
+            }
+
+            function readName(event){
+
+                event.preventDefault();
+
+                let element = document.querySelector("#name");
+
+                fetch("/api/movies/name/" + element.value)
+                .then((res) =>{
+                    return res.json();
+                })
+
+                .then((processed) => {
+                    let reporting = document.querySelector("#repoertingArea");
+
+                    if(processed.error){
+                        reporting.innerHTML = processed.error;
+                    }
+                    else{
+                        reporting.innerHTML = processed.score;
+                    }
+                });
+            }
+
+            function createMovie(event){
+                event.preventDefault();
+
+                let name = document.querySelector("#moviename");
+
+                let score = document.querySelector("#moviescore");
+
+                fetch("/api/movies/" + name.value + "/" + score.value, {
+                    "method" : "post"
+
+                }).then((res) =>{
+                    return res.json();
+                }).then((processed) => {
+                    console.log(processed);
+                });
+            }
+        </script>
+
+        <h2>Score</h2>
+        <form onsubmit="readScore(event)">
+            <input id="score" type="text">
+            <button>Submit</button>
+
+        </form>
+        <h2>Name</h2>
+        <form onsubmit="readScore(event)">
+            <input id="name" type="text">
+            <button>Submit</button>
+        </form>
+        <hr>
+        <form onsubmit="createMovie(event)">
+            <input id="moviename" type="text">
+            <input id="moviescore" type="text">
+            <button>Submit</button>
+        </form>
+        <hr>
+        <h2>Reporting</h2>
+        <div id="reportingArea"></div>
+
+    </body>
+</html>
