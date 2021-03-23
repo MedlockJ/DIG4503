@@ -1,12 +1,12 @@
 <html>
     <body>
         <script>
-            function readScore(event){
+            function readAge(event){
                 event.preventDefault();
 
-                let element = document.querySelector("#score");
+                let element = document.querySelector("#age");
 
-                fetch("/api/movies/score" + element.value)
+                fetch("/ages/" + element.value)
                 .then((res) => {
                     return res.json();
                 })
@@ -29,31 +29,31 @@
 
                 let element = document.querySelector("#name");
 
-                fetch("/api/movies/name/" + element.value)
+                fetch("/employees/" + element.value)
                 .then((res) =>{
                     return res.json();
                 })
 
                 .then((processed) => {
-                    let reporting = document.querySelector("#repoertingArea");
+                    let reporting = document.querySelector("#reportingArea");
 
                     if(processed.error){
                         reporting.innerHTML = processed.error;
                     }
                     else{
-                        reporting.innerHTML = processed.score;
+                        reporting.innerHTML = processed.age;
                     }
                 });
             }
 
-            function createMovie(event){
+            function createEmp(event){
                 event.preventDefault();
 
-                let name = document.querySelector("#moviename");
+                let name = document.querySelector("#empname");
 
-                let score = document.querySelector("#moviescore");
+                let age = document.querySelector("#empage");
 
-                fetch("/api/movies/" + name.value + "/" + score.value, {
+                fetch("/employees/" + name.value + "/" + age.value, {
                     "method" : "post"
 
                 }).then((res) =>{
@@ -64,21 +64,21 @@
             }
         </script>
 
-        <h2>Score</h2>
-        <form onsubmit="readScore(event)">
-            <input id="score" type="text">
+        <h2>Age</h2>
+        <form onsubmit="readAge(event)">
+            <input id="age" type="text">
             <button>Submit</button>
 
         </form>
         <h2>Name</h2>
-        <form onsubmit="readScore(event)">
+        <form onsubmit="readName(event)">
             <input id="name" type="text">
             <button>Submit</button>
         </form>
         <hr>
-        <form onsubmit="createMovie(event)">
-            <input id="moviename" type="text">
-            <input id="moviescore" type="text">
+        <form onsubmit="createEmp(event)">
+            <input id="empname" type="text">
+            <input id="empage" type="text">
             <button>Submit</button>
         </form>
         <hr>

@@ -37,17 +37,17 @@ App.get("/ages/:number", (req, res) => {
 
 });
 
-App.post("/api/movies/:name/:score", (req, res) => {
+App.post("/employees/:name/:age", (req, res) => {
     let result = {
         "name": req.params.name,
-        "score": parseInt(req.params.score)
+        "age": parseInt(req.params.age)
     };
 
     database.push(result);
 
     fs.writeFileSync("database.json", JSON.stringify(database, null, '\t'));
 
-    res.JSON(result);
+    res.json(result);
 })
 
 App.listen(port, ()=>{
