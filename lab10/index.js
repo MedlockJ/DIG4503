@@ -11,7 +11,7 @@ let fileContents = fs.readFileSync("database.json");
 
 let database = JSON.parse(fileContents);
 
-App.use("/", Express.static("public"));
+App.use("/", Express.static("client/build"));
 
 App.get("/employees/:name", (req,res)=>{
     let result = {"error": "Not available"};

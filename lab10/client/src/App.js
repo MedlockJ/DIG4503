@@ -6,8 +6,8 @@ import ReportingArea from "./components/ReportingArea";
 function App() {
   return (
      <div className="App">
-        <NameSearch/>
         <AgeSearch/>
+        <NameSearch/>
         <ReportingArea/>
      </div>
   );

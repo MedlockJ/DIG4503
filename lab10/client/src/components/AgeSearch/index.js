@@ -5,14 +5,14 @@ class AgeSearch extends React.Component{
     readAge(event){
         event.preventDefault();
 
-                let element = document.querySelector("#age");
-
-                fetch("/ages/" + element.value)
-                .then((res) => {
+        let element = document.querySelector("#age");
+         
+         fetch("/ages/" + element.value)
+            .then((res) => {
                     return res.json();
             })
 
-                .then((processed) =>{
+            .then((processed) =>{
                     let reporting = document.querySelector("#reportingArea");
 
                     if(processed.error){
@@ -22,7 +22,7 @@ class AgeSearch extends React.Component{
                     reporting.innerHTML = processed.name;
                 }
             });
-            element.value="";
+        element.value="";
     }
 
     render(){
@@ -34,7 +34,8 @@ class AgeSearch extends React.Component{
                     <button>Submit</button>
                 </form>
             </div>
-        )
+        );
 
     }
 }
+export default AgeSearch;

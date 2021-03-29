@@ -2,8 +2,9 @@ import React from "react";
 
 class NameSearch extends React.Component{
     readName(event){
+        //prevent default form action
         event.preventDefault();
-
+                //search element with ID = name
                 let element = document.querySelector("#name");
 
                 fetch("/employees/" + element.value)
@@ -13,7 +14,7 @@ class NameSearch extends React.Component{
 
                 .then((processed) => {
                     let reporting = document.querySelector("#reportingArea");
-
+                  
                     if(processed.error){
                         reporting.innerHTML = processed.error;
                     }
@@ -29,12 +30,12 @@ class NameSearch extends React.Component{
         return(
             <div>
             <h2>Name</h2>
-            <form onSubmit={this.readName}>
+            <form onsubmit={this.readName}>
                 <input id="name" type="text"/>
                 <button>Submit</button>
             </form>
             </div>
-        )
+        );
     }
 }
 

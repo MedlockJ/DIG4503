@@ -8,7 +8,7 @@ class ReportingArea extends React.Component{
                 <div id="reportingArea"></div>
             </div>
 
-        )
+        );
 
     }
 
