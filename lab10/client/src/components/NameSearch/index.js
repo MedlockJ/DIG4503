@@ -1,6 +1,6 @@
 import React from "react";
 
-Class NameSearch extends React.Component{
+class NameSearch extends React.Component{
     readName(event){
         event.preventDefault();
 
@@ -38,4 +38,4 @@ Class NameSearch extends React.Component{
     }
 }
 
-export deafult NameSearch;
+export default NameSearch;
