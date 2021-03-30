@@ -24,7 +24,7 @@ App.get("/employees/:name", (req,res)=>{
     });
 
     res.json(result);
-});
+})
 
 App.get("/ages/:number", (req, res) => {
     let result = {"error": "Not available"};
@@ -38,7 +38,7 @@ App.get("/ages/:number", (req, res) => {
 
     res.json(result);
 
-});
+})
 
 App.post("/employees/:name/:age", (req, res) => {
     let result = {

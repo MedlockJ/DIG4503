@@ -4,9 +4,9 @@ class AgeSearch extends React.Component{
 
     readAge(event){
         event.preventDefault();
-
+        
         let element = document.querySelector("#age");
-         
+         console.log(element.value);
          fetch("/ages/" + element.value)
             .then((res) => {
                     return res.json();
