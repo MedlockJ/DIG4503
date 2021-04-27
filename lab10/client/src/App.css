@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+body{
+  background-color: #28292e;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -43,11 +47,44 @@
   margin-right: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  color: black;
 }
 
-div #reportingArea{
+#reportingArea{
   background-color: #28292e;
+  padding: 70px;
+}
+#innerReporting{
+  color: red;
+}
 
+div.App{
+
+  background-color: gray;
+  color: white;
+
+}
+
+.button{
+  padding: 5px 10px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 6px #999;
+}
+
+.button:hover{
+  background-color: black;
+}
+
+.button:active{
+  background-color: black;
+  box-shadow: 0 4px #666;
+  transform: translateY(4px);
 }

@@ -18,9 +18,10 @@ class AgeSearch extends React.Component{
             .then((processed) =>{
                     //find id ReportingArea
                     let reporting = document.querySelector("#reportingArea");
+                    let innerReporting = document.querySelector("#innerReporting");
                     //check to see if property matches
                     if(processed.error){
-                        reporting.innerHTML = processed.error;
+                        innerReporting.innerHTML = processed.error;
                     } 
                     else{
                     reporting.innerHTML = processed.name;
@@ -35,7 +36,7 @@ class AgeSearch extends React.Component{
                 <h2>Age</h2>
                 <form onSubmit={this.readAge}>
                     <input id="age" type="text"/>
-                    <button>Submit</button>
+                    <button class="button">Submit</button>
                 </form>
             </div>
         );
