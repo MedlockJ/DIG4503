@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 
 class ReportingArea extends React.Component{
     render(){
@@ -9,9 +10,6 @@ class ReportingArea extends React.Component{
             </div>
 
         );
-
     }
-
-
 }
 export default ReportingArea;

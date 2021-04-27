@@ -13,8 +13,9 @@ class NameSearch extends React.Component{
                 })
 
                 .then((processed) => {
+                    //search for ID Reporting Area
                     let reporting = document.querySelector("#reportingArea");
-                  
+                    //check to see if property matches
                     if(processed.error){
                         reporting.innerHTML = processed.error;
                     }

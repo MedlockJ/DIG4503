@@ -3,18 +3,22 @@ import React from "react";
 class AgeSearch extends React.Component{
 
     readAge(event){
+        //prevent default form action
         event.preventDefault();
         
+        //find element id Age
         let element = document.querySelector("#age");
          console.log(element.value);
          fetch("/ages/" + element.value)
             .then((res) => {
+                    //parse string into object
                     return res.json();
             })
 
             .then((processed) =>{
+                    //find id ReportingArea
                     let reporting = document.querySelector("#reportingArea");
-
+                    //check to see if property matches
                     if(processed.error){
                         reporting.innerHTML = processed.error;
                     } 
