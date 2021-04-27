@@ -17,6 +17,7 @@ let database = JSON.parse(fileContents);
 //serve static files to "/" path
 App.use("/", Express.static("client/build"));
 
+//Serve request
 App.get("/employees/:name", (req,res)=>{
     let result = {"error": "Not available"};
 
