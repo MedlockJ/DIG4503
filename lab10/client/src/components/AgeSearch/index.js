@@ -18,13 +18,16 @@ class AgeSearch extends React.Component{
             .then((processed) =>{
                     //find id ReportingArea
                     let reporting = document.querySelector("#reportingArea");
-                    let innerReporting = document.querySelector("#innerReporting");
+                
                     //check to see if property matches
                     if(processed.error){
-                        innerReporting.innerHTML = processed.error;
+                        //changes text to red if not found in database
+                        reporting.classList.add('red');
+                        reporting.innerHTML = processed.error;
                     } 
                     else{
-                    reporting.innerHTML = processed.name;
+                        reporting.classList.remove('red');
+                        reporting.innerHTML = processed.name;
                 }
             });
         element.value="";
@@ -32,7 +35,7 @@ class AgeSearch extends React.Component{
 
     render(){
         return(
-            <div>
+            <div class="form">
                 <h2>Age</h2>
                 <form onSubmit={this.readAge}>
                     <input id="age" type="text"/>

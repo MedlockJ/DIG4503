@@ -15,12 +15,15 @@ class NameSearch extends React.Component{
                 .then((processed) => {
                     //search for ID Reporting Area
                     let reporting = document.querySelector("#reportingArea");
-                    let innerReporting = document.querySelector("#innerReporting");
+                   
                     //check to see if property matches
                     if(processed.error){
-                        innerReporting.innerHTML = processed.error;
+                        //changes text to red if not found in database
+                        reporting.classList.add('red');
+                        reporting.innerHTML = processed.error;
                     }
                     else{
+                        reporting.classList.remove('red');
                         reporting.innerHTML = processed.age;
                     }
                 });
@@ -30,7 +33,7 @@ class NameSearch extends React.Component{
 
     render(){
         return(
-            <div>
+            <div class="form">
             <h2>Name</h2>
             <form onSubmit={this.readName}>
                 <input id="name" type="text"/>
