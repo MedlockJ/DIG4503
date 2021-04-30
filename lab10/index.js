@@ -52,9 +52,8 @@ App.post("/employees/:name/:age", (req, res) => {
         "name": req.params.name,
         "age": parseInt(req.params.age)
     };
-
+    
     database.push(result);
-
     fs.writeFileSync("database.json", JSON.stringify(database, null, '\t'));
 
     res.json(result);
